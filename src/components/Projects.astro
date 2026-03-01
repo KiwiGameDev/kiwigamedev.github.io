@@ -2,10 +2,26 @@
 // Projects section component
 const projects = [
   {
+    title: "God of War Sons of Sparta",
+    description: "2026 Metroidvania developed by Mega Cat Studios and Santa Monica Studio and published by Sony Interactive Entertainment.",
+    image: "/assets/img/sons_of_sparta.jpg",
+    tags: ["Featured", "Unity"],
+    link: "https://kiwigamedev.itch.io/literal-dungeon-crawler",
+    category: "featured"
+  },
+  {
+    title: "Renfield: Bring Your Own Blood",
+    description: "2023 horror roguelike shoot 'em up video game developed by Mega Cat Studios and published by Skybound Games, which is based on the action horror film Renfield",
+    image: "/assets/img/renfield_byob.jpg",
+    tags: ["Featured", "Unity"],
+    link: "https://kiwigamedev.itch.io/literal-dungeon-crawler",
+    category: "featured"
+  },
+  {
     title: "Literal Dungeon Crawler",
     description: "A creative take on dungeon crawling where you literally crawl through dungeons.",
     image: "/assets/img/literal_dungeon_crawler.gif",
-    tags: ["Unity", "C#"],
+    tags: ["Featured", "Unity"],
     link: "https://kiwigamedev.itch.io/literal-dungeon-crawler",
     category: "unity"
   },
@@ -13,7 +29,7 @@ const projects = [
     title: "A Virtuous Run",
     description: "An endless runner with a moral twist on gameplay mechanics.",
     image: "/assets/img/a_virtuous_run.gif",
-    tags: ["Unity", "C#"],
+    tags: ["Unity"],
     link: "https://kiwigamedev.itch.io/a-virtuous-run",
     category: "unity"
   },
@@ -21,7 +37,7 @@ const projects = [
     title: "Space Pong!",
     description: "A space-themed twist on the classic Pong game with modern mechanics.",
     image: "/assets/img/space_pong.gif",
-    tags: ["Godot", "GDScript"],
+    tags: ["Godot"],
     link: "https://kiwigamedev.itch.io/space-pong",
     category: "godot"
   },
@@ -29,7 +45,7 @@ const projects = [
     title: "Three Shades of Grey",
     description: "A minimalist puzzle game exploring color and perception.",
     image: "/assets/img/three_shades_of_grey.gif",
-    tags: ["Godot", "GDScript"],
+    tags: ["Godot"],
     link: "https://kiwigamedev.itch.io/three-shades-of-grey",
     category: "godot"
   },
@@ -37,7 +53,7 @@ const projects = [
     title: "On The Other Side",
     description: "A narrative-driven game exploring different perspectives.",
     image: "/assets/img/on_the_other_side.gif",
-    tags: ["Godot", "GDScript"],
+    tags: ["Godot"],
     link: "https://kiwigamedev.itch.io/ontheotherside",
     category: "godot"
   },
@@ -45,7 +61,7 @@ const projects = [
     title: "JunkyPunk",
     description: "A cyberpunk-themed action game built with Unreal Engine.",
     image: "/assets/img/junkypunk.png",
-    tags: ["Unreal Engine", "Blueprint"],
+    tags: ["Unreal Engine"],
     link: "https://gitlab.com/KiwiGameDev/junkypunk",
     category: "unreal"
   },
@@ -79,52 +95,54 @@ const projects = [
 <section id="projects" class="py-20 px-4 sm:px-6 lg:px-8 bg-gray-900/30">
   <div class="max-w-6xl mx-auto">
     <div class="text-center mb-16">
-      <h2 class="text-3xl sm:text-4xl font-bold text-white mb-4">
+      <h2 class="text-3xl sm:text-4xl font-bold text-pale-yellow mb-4">
         Featured Projects
       </h2>
-      <div class="w-20 h-1 bg-gradient-to-r from-blue-400 to-purple-500 mx-auto mb-8"></div>
-      <p class="text-lg text-gray-400 max-w-2xl mx-auto">
+      <p class="text-lg max-w-2xl mx-auto">
         A collection of games and graphics programming projects showcasing my skills across different engines and technologies.
       </p>
     </div>
     
     <!-- Filter buttons -->
     <div class="flex flex-wrap justify-center gap-4 mb-12">
-      <button class="filter-btn active px-6 py-2 rounded-full text-sm font-medium transition-all duration-300 bg-blue-500 text-white" data-filter="all">
-        All
+      <button class="filter-btn active px-6 py-2 rounded-full text-sm font-medium transition-all duration-300 bg-pale-yellow text-dark-orange" data-filter="featured">
+        Featured
       </button>
-      <button class="filter-btn px-6 py-2 rounded-full text-sm font-medium transition-all duration-300 bg-gray-800 text-gray-300 hover:bg-gray-700" data-filter="unity">
+      <button class="filter-btn px-6 py-2 rounded-full text-sm font-medium transition-all duration-300 bg-gray-800 text-pale-yellow hover:bg-gray-700" data-filter="unity">
         Unity
       </button>
-      <button class="filter-btn px-6 py-2 rounded-full text-sm font-medium transition-all duration-300 bg-gray-800 text-gray-300 hover:bg-gray-700" data-filter="unreal">
+      <button class="filter-btn px-6 py-2 rounded-full text-sm font-medium transition-all duration-300 bg-gray-800 text-pale-yellow hover:bg-gray-700" data-filter="unreal">
         Unreal
       </button>
-      <button class="filter-btn px-6 py-2 rounded-full text-sm font-medium transition-all duration-300 bg-gray-800 text-gray-300 hover:bg-gray-700" data-filter="godot">
+      <button class="filter-btn px-6 py-2 rounded-full text-sm font-medium transition-all duration-300 bg-gray-800 text-pale-yellow hover:bg-gray-700" data-filter="godot">
         Godot
       </button>
-      <button class="filter-btn px-6 py-2 rounded-full text-sm font-medium transition-all duration-300 bg-gray-800 text-gray-300 hover:bg-gray-700" data-filter="graphics">
+      <button class="filter-btn px-6 py-2 rounded-full text-sm font-medium transition-all duration-300 bg-gray-800 text-pale-yellow hover:bg-gray-700" data-filter="graphics">
         Graphics
+      </button>
+      <button class="filter-btn px-6 py-2 rounded-full text-sm font-medium transition-all duration-300 bg-gray-800 text-pale-yellow hover:bg-gray-700" data-filter="all">
+        All
       </button>
     </div>
     
     <!-- Projects grid -->
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 projects-grid">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 projects-grid">
       {projects.map((project) => (
-        <div class={`project-card bg-gray-900/50 backdrop-blur-sm border border-gray-800 rounded-lg overflow-hidden hover:border-blue-500/50 transition-all duration-300 hover:transform hover:scale-105 ${project.category}`} data-category={project.category}>
+        <div class={`project-card bg-gray-900/50 backdrop-blur-sm border border-gray-800 rounded-lg overflow-hidden shadow-lg hover:shadow-2xl shadow-black/20 hover:shadow-black/70 hover:border-pale-green transition-all duration-300 hover:transform hover:scale-105 ${project.category}`} data-category={project.category} style={project.category !== 'featured' ? 'display: none' : ''}>
           <div class="aspect-video overflow-hidden">
             <img 
               src={project.image} 
               alt={project.title}
-              class="w-full h-full object-cover transition-transform duration-300 hover:scale-110"
+              class="w-full h-full object-cover object-[center_20%] transition-transform duration-300 hover:scale-110"
               loading="lazy"
             />
           </div>
           <div class="p-6">
-            <h3 class="text-xl font-semibold text-white mb-2">{project.title}</h3>
-            <p class="text-gray-400 text-sm mb-4 leading-relaxed">{project.description}</p>
+            <h3 class="text-xl font-semibold text-pale-yellow mb-2">{project.title}</h3>
+            <p class="text-sm mb-4 leading-relaxed">{project.description}</p>
             <div class="flex flex-wrap gap-2 mb-4">
               {project.tags.map((tag) => (
-                <span class="px-3 py-1 text-xs font-medium bg-gray-800 text-gray-300 rounded-full">
+                <span class="px-3 py-1 text-xs font-medium bg-gray-800 rounded-full">
                   {tag}
                 </span>
               ))}
@@ -133,7 +151,7 @@ const projects = [
               href={project.link} 
               target={project.link.startsWith('http') ? '_blank' : '_self'}
               rel={project.link.startsWith('http') ? 'noopener noreferrer' : ''}
-              class="inline-flex items-center text-blue-400 hover:text-blue-300 font-medium text-sm transition-colors group"
+              class="inline-flex items-center text-dark-orange hover:text-blue-300 font-medium text-sm transition-colors group"
             >
               View Project
               <svg class="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -159,11 +177,11 @@ const projects = [
         
         // Update active button
         filterButtons.forEach(btn => {
-          btn.classList.remove('active', 'bg-blue-500', 'text-white');
-          btn.classList.add('bg-gray-800', 'text-gray-300');
+          btn.classList.remove('active', 'bg-pale-yellow', 'text-dark-orange');
+          btn.classList.add('bg-gray-800', 'text-pale-yellow');
         });
-        this.classList.add('active', 'bg-blue-500', 'text-white');
-        this.classList.remove('bg-gray-800', 'text-gray-300');
+        this.classList.add('active', 'bg-pale-yellow', 'text-dark-orange');
+        this.classList.remove('bg-gray-800', 'text-pale-yellow');
         
         // Filter projects
         projectCards.forEach(card => {

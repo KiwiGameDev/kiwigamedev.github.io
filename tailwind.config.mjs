@@ -9,7 +9,13 @@ export default {
       },
       animation: {
         'bounce': 'bounce 2s infinite',
-      }
+      },
+      colors: {
+        'reddish-black': '#372a39',
+        'dark-orange': '#aa644d',
+        'pale-green': '#7c9b6aff',
+        'pale-yellow': '#f5e9bf',
+      },
     },
   },
   plugins: [],
