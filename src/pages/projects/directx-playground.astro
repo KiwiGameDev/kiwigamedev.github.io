@@ -1,0 +1,94 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Navigation from '../../components/Navigation.astro';
+import Footer from '../../components/Footer.astro';
+---
+
+<Layout title="DirectX Playground - Bruce M.">
+  <Navigation />
+  <main class="pt-16">
+    <section class="py-20 px-4 sm:px-6 lg:px-8">
+      <div class="max-w-4xl mx-auto">
+        <!-- Header -->
+        <div class="mb-12">
+          <a href="/" class="inline-flex items-center text-blue-400 hover:text-blue-300 mb-6 transition-colors">
+            <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+            </svg>
+            Back to Portfolio
+          </a>
+          <h1 class="text-4xl sm:text-5xl font-bold text-white mb-4">DirectX Playground</h1>
+          <p class="text-xl text-gray-400 leading-relaxed">
+            An exploration into DirectX and a second attempt at 3D rendering. A project done solo.
+          </p>
+        </div>
+
+        <!-- Project Image -->
+        <div class="mb-12">
+          <img 
+            src="/assets/img/directx.jpg" 
+            alt="DirectX Playground"
+            class="w-full rounded-lg shadow-2xl"
+          />
+        </div>
+
+        <!-- Project Details -->
+        <div class="grid md:grid-cols-3 gap-8 mb-12">
+          <div class="bg-gray-900/50 backdrop-blur-sm border border-gray-800 rounded-lg p-6">
+            <h3 class="text-lg font-semibold text-white mb-2">Technologies</h3>
+            <div class="flex flex-wrap gap-2">
+              <span class="px-3 py-1 text-xs font-medium bg-gray-800 text-gray-300 rounded-full">DirectX</span>
+              <span class="px-3 py-1 text-xs font-medium bg-gray-800 text-gray-300 rounded-full">C++</span>
+              <span class="px-3 py-1 text-xs font-medium bg-gray-800 text-gray-300 rounded-full">HLSL</span>
+            </div>
+          </div>
+          
+          <div class="bg-gray-900/50 backdrop-blur-sm border border-gray-800 rounded-lg p-6">
+            <h3 class="text-lg font-semibold text-white mb-2">Category</h3>
+            <p class="text-gray-400">Graphics Programming</p>
+          </div>
+          
+          <div class="bg-gray-900/50 backdrop-blur-sm border border-gray-800 rounded-lg p-6">
+            <h3 class="text-lg font-semibold text-white mb-2">Status</h3>
+            <p class="text-gray-400">Experimental</p>
+          </div>
+        </div>
+
+        <!-- Project Description -->
+        <div class="prose prose-invert max-w-none">
+          <h2 class="text-2xl font-bold text-white mb-4">About This Project</h2>
+          <p class="text-gray-300 leading-relaxed mb-6">
+            This DirectX playground represents my exploration into low-level graphics programming using Microsoft's DirectX API. 
+            As a follow-up to my OpenGL experiments, this project focuses on understanding the DirectX rendering pipeline, 
+            shader development with HLSL, and the intricacies of Windows-based graphics programming.
+          </p>
+          
+          <h3 class="text-xl font-semibold text-white mb-3">Key Features</h3>
+          <ul class="text-gray-300 space-y-2 mb-6">
+            <li>• DirectX 11/12 rendering pipeline implementation</li>
+            <li>• HLSL shader development and experimentation</li>
+            <li>• 3D model loading and rendering</li>
+            <li>• Texture mapping and material systems</li>
+            <li>• Real-time lighting calculations</li>
+            <li>• Performance optimization techniques</li>
+          </ul>
+
+          <h3 class="text-xl font-semibold text-white mb-3">Technical Challenges</h3>
+          <p class="text-gray-300 leading-relaxed mb-6">
+            Working with DirectX presented unique challenges compared to OpenGL, particularly in understanding the 
+            Windows-specific graphics architecture and the more verbose API structure. The project involved deep dives 
+            into GPU memory management, command buffer optimization, and the DirectX shader compilation pipeline.
+          </p>
+
+          <h3 class="text-xl font-semibold text-white mb-3">Learning Outcomes</h3>
+          <p class="text-gray-300 leading-relaxed">
+            This project significantly enhanced my understanding of graphics programming fundamentals, particularly 
+            in areas of GPU architecture, shader optimization, and cross-platform graphics development considerations. 
+            The experience with DirectX has been invaluable for my work in game engines like Unity and Unreal Engine.
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</Layout>

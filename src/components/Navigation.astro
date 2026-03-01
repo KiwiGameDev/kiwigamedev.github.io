@@ -1,0 +1,77 @@
+---
+// Navigation component
+---
+
+<nav class="fixed top-0 left-0 right-0 z-50 bg-gray-950/80 backdrop-blur-md border-b border-gray-800">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-16">
+      <!-- Logo -->
+      <div class="flex-shrink-0">
+        <a href="#" class="text-xl font-bold text-white hover:text-blue-400 transition-colors">
+          Bruce Miranda
+        </a>
+      </div>
+      
+      <!-- Desktop Navigation -->
+      <div class="hidden md:block">
+        <div class="ml-10 flex items-baseline space-x-8">
+          <a href="#about" class="text-gray-300 hover:text-white px-3 py-2 text-sm font-medium transition-colors">
+            About
+          </a>
+          <a href="#projects" class="text-gray-300 hover:text-white px-3 py-2 text-sm font-medium transition-colors">
+            Projects
+          </a>
+          <a href="#contact" class="text-gray-300 hover:text-white px-3 py-2 text-sm font-medium transition-colors">
+            Contact
+          </a>
+        </div>
+      </div>
+      
+      <!-- Mobile menu button -->
+      <div class="md:hidden">
+        <button type="button" class="mobile-menu-button text-gray-300 hover:text-white focus:outline-none focus:text-white">
+          <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Mobile Navigation -->
+  <div class="mobile-menu hidden md:hidden">
+    <div class="px-2 pt-2 pb-3 space-y-1 bg-gray-900 border-t border-gray-800">
+      <a href="#about" class="text-gray-300 hover:text-white block px-3 py-2 text-base font-medium transition-colors">
+        About
+      </a>
+      <a href="#projects" class="text-gray-300 hover:text-white block px-3 py-2 text-base font-medium transition-colors">
+        Projects
+      </a>
+      <a href="#contact" class="text-gray-300 hover:text-white block px-3 py-2 text-base font-medium transition-colors">
+        Contact
+      </a>
+    </div>
+  </div>
+</nav>
+
+<script>
+  // Mobile menu toggle
+  document.addEventListener('DOMContentLoaded', function() {
+    const mobileMenuButton = document.querySelector('.mobile-menu-button');
+    const mobileMenu = document.querySelector('.mobile-menu');
+    
+    if (mobileMenuButton && mobileMenu) {
+      mobileMenuButton.addEventListener('click', function() {
+        mobileMenu.classList.toggle('hidden');
+      });
+      
+      // Close mobile menu when clicking on a link
+      const mobileLinks = mobileMenu.querySelectorAll('a');
+      mobileLinks.forEach(link => {
+        link.addEventListener('click', function() {
+          mobileMenu.classList.add('hidden');
+        });
+      });
+    }
+  });
+</script>

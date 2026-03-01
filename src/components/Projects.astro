@@ -1,0 +1,187 @@
+---
+// Projects section component
+const projects = [
+  {
+    title: "Literal Dungeon Crawler",
+    description: "A creative take on dungeon crawling where you literally crawl through dungeons.",
+    image: "/assets/img/literal_dungeon_crawler.gif",
+    tags: ["Unity", "C#"],
+    link: "https://kiwigamedev.itch.io/literal-dungeon-crawler",
+    category: "unity"
+  },
+  {
+    title: "A Virtuous Run",
+    description: "An endless runner with a moral twist on gameplay mechanics.",
+    image: "/assets/img/a_virtuous_run.gif",
+    tags: ["Unity", "C#"],
+    link: "https://kiwigamedev.itch.io/a-virtuous-run",
+    category: "unity"
+  },
+  {
+    title: "Space Pong!",
+    description: "A space-themed twist on the classic Pong game with modern mechanics.",
+    image: "/assets/img/space_pong.gif",
+    tags: ["Godot", "GDScript"],
+    link: "https://kiwigamedev.itch.io/space-pong",
+    category: "godot"
+  },
+  {
+    title: "Three Shades of Grey",
+    description: "A minimalist puzzle game exploring color and perception.",
+    image: "/assets/img/three_shades_of_grey.gif",
+    tags: ["Godot", "GDScript"],
+    link: "https://kiwigamedev.itch.io/three-shades-of-grey",
+    category: "godot"
+  },
+  {
+    title: "On The Other Side",
+    description: "A narrative-driven game exploring different perspectives.",
+    image: "/assets/img/on_the_other_side.gif",
+    tags: ["Godot", "GDScript"],
+    link: "https://kiwigamedev.itch.io/ontheotherside",
+    category: "godot"
+  },
+  {
+    title: "JunkyPunk",
+    description: "A cyberpunk-themed action game built with Unreal Engine.",
+    image: "/assets/img/junkypunk.png",
+    tags: ["Unreal Engine", "Blueprint"],
+    link: "https://gitlab.com/KiwiGameDev/junkypunk",
+    category: "unreal"
+  },
+  {
+    title: "DirectX Playground",
+    description: "Experimental DirectX graphics programming and shader development.",
+    image: "/assets/img/directx.jpg",
+    tags: ["DirectX", "C++", "HLSL"],
+    link: "/projects/directx-playground",
+    category: "graphics"
+  },
+  {
+    title: "OpenGL Playground",
+    description: "OpenGL graphics programming experiments and rendering techniques.",
+    image: "/assets/img/opengl.jpg",
+    tags: ["OpenGL", "C++", "GLSL"],
+    link: "/projects/opengl-playground",
+    category: "graphics"
+  },
+  {
+    title: "OpenGL w/ Multithreading",
+    description: "Advanced OpenGL rendering with multithreaded asset streaming.",
+    image: "/assets/img/opengl-asset-streaming.jpg",
+    tags: ["OpenGL", "C++", "Multithreading"],
+    link: "/projects/opengl-asset-streaming",
+    category: "graphics"
+  }
+];
+---
+
+<section id="projects" class="py-20 px-4 sm:px-6 lg:px-8 bg-gray-900/30">
+  <div class="max-w-6xl mx-auto">
+    <div class="text-center mb-16">
+      <h2 class="text-3xl sm:text-4xl font-bold text-white mb-4">
+        Featured Projects
+      </h2>
+      <div class="w-20 h-1 bg-gradient-to-r from-blue-400 to-purple-500 mx-auto mb-8"></div>
+      <p class="text-lg text-gray-400 max-w-2xl mx-auto">
+        A collection of games and graphics programming projects showcasing my skills across different engines and technologies.
+      </p>
+    </div>
+    
+    <!-- Filter buttons -->
+    <div class="flex flex-wrap justify-center gap-4 mb-12">
+      <button class="filter-btn active px-6 py-2 rounded-full text-sm font-medium transition-all duration-300 bg-blue-500 text-white" data-filter="all">
+        All
+      </button>
+      <button class="filter-btn px-6 py-2 rounded-full text-sm font-medium transition-all duration-300 bg-gray-800 text-gray-300 hover:bg-gray-700" data-filter="unity">
+        Unity
+      </button>
+      <button class="filter-btn px-6 py-2 rounded-full text-sm font-medium transition-all duration-300 bg-gray-800 text-gray-300 hover:bg-gray-700" data-filter="unreal">
+        Unreal
+      </button>
+      <button class="filter-btn px-6 py-2 rounded-full text-sm font-medium transition-all duration-300 bg-gray-800 text-gray-300 hover:bg-gray-700" data-filter="godot">
+        Godot
+      </button>
+      <button class="filter-btn px-6 py-2 rounded-full text-sm font-medium transition-all duration-300 bg-gray-800 text-gray-300 hover:bg-gray-700" data-filter="graphics">
+        Graphics
+      </button>
+    </div>
+    
+    <!-- Projects grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 projects-grid">
+      {projects.map((project) => (
+        <div class={`project-card bg-gray-900/50 backdrop-blur-sm border border-gray-800 rounded-lg overflow-hidden hover:border-blue-500/50 transition-all duration-300 hover:transform hover:scale-105 ${project.category}`} data-category={project.category}>
+          <div class="aspect-video overflow-hidden">
+            <img 
+              src={project.image} 
+              alt={project.title}
+              class="w-full h-full object-cover transition-transform duration-300 hover:scale-110"
+              loading="lazy"
+            />
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-semibold text-white mb-2">{project.title}</h3>
+            <p class="text-gray-400 text-sm mb-4 leading-relaxed">{project.description}</p>
+            <div class="flex flex-wrap gap-2 mb-4">
+              {project.tags.map((tag) => (
+                <span class="px-3 py-1 text-xs font-medium bg-gray-800 text-gray-300 rounded-full">
+                  {tag}
+                </span>
+              ))}
+            </div>
+            <a 
+              href={project.link} 
+              target={project.link.startsWith('http') ? '_blank' : '_self'}
+              rel={project.link.startsWith('http') ? 'noopener noreferrer' : ''}
+              class="inline-flex items-center text-blue-400 hover:text-blue-300 font-medium text-sm transition-colors group"
+            >
+              View Project
+              <svg class="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<script>
+  // Project filtering functionality
+  document.addEventListener('DOMContentLoaded', function() {
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const projectCards = document.querySelectorAll('.project-card');
+    
+    filterButtons.forEach(button => {
+      button.addEventListener('click', function() {
+        const filter = this.getAttribute('data-filter');
+        
+        // Update active button
+        filterButtons.forEach(btn => {
+          btn.classList.remove('active', 'bg-blue-500', 'text-white');
+          btn.classList.add('bg-gray-800', 'text-gray-300');
+        });
+        this.classList.add('active', 'bg-blue-500', 'text-white');
+        this.classList.remove('bg-gray-800', 'text-gray-300');
+        
+        // Filter projects
+        projectCards.forEach(card => {
+          const category = card.getAttribute('data-category');
+          if (filter === 'all' || category === filter) {
+            card.style.display = 'block';
+            card.style.opacity = '0';
+            setTimeout(() => {
+              card.style.opacity = '1';
+            }, 100);
+          } else {
+            card.style.opacity = '0';
+            setTimeout(() => {
+              card.style.display = 'none';
+            }, 300);
+          }
+        });
+      });
+    });
+  });
+</script>
