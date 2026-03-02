@@ -22,10 +22,14 @@ const { title, description = "Game Developer specializing in Unity, Unreal, Godo
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
   </head>
-  <body class="bg-reddish-black text-pale-green font-inter antialiased">
+  <body class="bg-background text-secondary font-inter antialiased">
     <slot />
     
-    <script>
+    <script is:inline>
+      // Load and apply theme on page load
+      const savedTheme = localStorage.getItem('theme') || 'default';
+      document.documentElement.setAttribute('data-theme', savedTheme);
+
       // Smooth scrolling for anchor links
       document.addEventListener('DOMContentLoaded', function() {
         const links = document.querySelectorAll('a[href^="#"]');
@@ -47,6 +51,34 @@ const { title, description = "Game Developer specializing in Unity, Unreal, Godo
 </html>
 
 <style is:global>
+  :root, [data-theme="default"] {
+    --color-background: #24273a;
+    --color-secondary: #a5adcb;
+    --color-accent: #cad3f5;
+    --color-highlight: #9bcb8e;
+  }
+
+  [data-theme="ocean"] {
+    --color-background: #1a2a3a;
+    --color-secondary: #a0c4ff;
+    --color-accent: #4cc9f0;
+    --color-highlight: #e0fbfc;
+  }
+
+  [data-theme="sunset"] {
+    --color-background: #2d1b2d;
+    --color-secondary: #ff9e00;
+    --color-accent: #ff0054;
+    --color-highlight: #ffbd00;
+  }
+
+  [data-theme="forest"] {
+    --color-background: #1b261b;
+    --color-secondary: #9ef01a;
+    --color-accent: #38b000;
+    --color-highlight: #ccff33;
+  }
+
   html {
     font-family: 'Inter', system-ui, sans-serif;
   }

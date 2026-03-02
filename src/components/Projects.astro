@@ -92,29 +92,26 @@ const projects = [
 ];
 ---
 
-<section id="projects" class="py-20 px-4 sm:px-6 lg:px-8 bg-gray-900/30">
+<section id="projects" class="py-20 px-4 sm:px-6 lg:px-8 bg-highlight/5">
   <div class="max-w-6xl mx-auto">
     <div class="text-center mb-16">
-      <h2 class="text-3xl sm:text-4xl font-bold text-pale-yellow mb-4">
+      <h2 class="text-3xl sm:text-5xl font-bold text-accent mb-4">
         Featured Projects
       </h2>
-      <p class="text-lg max-w-2xl mx-auto">
-        A collection of games and graphics programming projects showcasing my skills across different engines and technologies.
-      </p>
     </div>
     
     <!-- Filter buttons -->
     <div class="flex flex-wrap justify-center gap-4 mb-12">
-      <button class="filter-btn active px-6 py-2 rounded-full text-sm font-medium transition-all duration-300 bg-pale-yellow text-dark-orange" data-filter="featured">
+      <button class="filter-btn active px-6 py-2 rounded-full text-sm font-medium transition-all duration-300 bg-[#363a4f] text-highlight" data-filter="featured">
         Featured
       </button>
-      <button class="filter-btn px-6 py-2 rounded-full text-sm font-medium transition-all duration-300 bg-gray-800 text-pale-yellow hover:bg-gray-700" data-filter="graphics">
+      <button class="filter-btn px-6 py-2 rounded-full text-sm font-medium transition-all duration-300 bg-[#363a4f]/10 text-accent hover:bg-[#363a4f]/20" data-filter="graphics">
         Graphics
       </button>
-      <button class="filter-btn px-6 py-2 rounded-full text-sm font-medium transition-all duration-300 bg-gray-800 text-pale-yellow hover:bg-gray-700" data-filter="personal">
+      <button class="filter-btn px-6 py-2 rounded-full text-sm font-medium transition-all duration-300 bg-[#363a4f]/10 text-accent hover:bg-[#363a4f]/20" data-filter="personal">
         Personal Projects
       </button>
-      <button class="filter-btn px-6 py-2 rounded-full text-sm font-medium transition-all duration-300 bg-gray-800 text-pale-yellow hover:bg-gray-700" data-filter="all">
+      <button class="filter-btn px-6 py-2 rounded-full text-sm font-medium transition-all duration-300 bg-[#363a4f]/10 text-accent hover:bg-[#363a4f]/20" data-filter="all">
         All
       </button>
     </div>
@@ -122,7 +119,7 @@ const projects = [
     <!-- Projects grid -->
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 projects-grid">
       {projects.map((project) => (
-        <div class={`project-card bg-gray-900/50 backdrop-blur-sm border border-gray-800 rounded-lg overflow-hidden shadow-lg hover:shadow-2xl shadow-black/20 hover:shadow-black/70 hover:border-pale-green transition-all duration-300 hover:transform hover:scale-105 ${project.category}`} data-category={project.category} style={project.category !== 'featured' ? 'display: none' : ''}>
+        <div class={`project-card bg-highlight/5 backdrop-blur-sm border border-highlight/10 rounded-lg overflow-hidden shadow-lg hover:shadow-2xl shadow-black/20 hover:shadow-black/70 hover:border-secondary transition-all duration-300 hover:transform hover:scale-105 ${project.category}`} data-category={project.category} style={project.category !== 'featured' ? 'display: none' : ''}>
           <div class="aspect-video overflow-hidden">
             <img 
               src={project.image} 
@@ -132,11 +129,11 @@ const projects = [
             />
           </div>
           <div class="p-6">
-            <h3 class="text-xl font-semibold text-pale-yellow mb-2">{project.title}</h3>
-            <p class="text-sm mb-4 leading-relaxed">{project.description}</p>
+            <h3 class="text-2xl font-bold text-accent mb-2">{project.title}</h3>
+            <p class="text-sm mb-4 leading-relaxed text-secondary/80">{project.description}</p>
             <div class="flex flex-wrap gap-2 mb-4">
               {project.tags.map((tag) => (
-                <span class="px-3 py-1 text-xs font-medium bg-gray-800 rounded-full">
+                <span class="px-3 py-1 text-xs font-medium bg-highlight/10 rounded-full text-secondary">
                   {tag}
                 </span>
               ))}
@@ -145,7 +142,7 @@ const projects = [
               href={project.link} 
               target={project.link.startsWith('http') ? '_blank' : '_self'}
               rel={project.link.startsWith('http') ? 'noopener noreferrer' : ''}
-              class="inline-flex items-center text-dark-orange hover:text-blue-300 font-medium text-sm transition-colors group"
+              class="inline-flex items-center text-accent hover:text-highlight font-medium text-sm transition-colors group"
             >
               View Project
               <svg class="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -162,8 +159,8 @@ const projects = [
 <script>
   // Project filtering functionality
   document.addEventListener('DOMContentLoaded', function() {
-    const filterButtons = document.querySelectorAll('.filter-btn');
-    const projectCards = document.querySelectorAll('.project-card');
+    const filterButtons = document.querySelectorAll<HTMLButtonElement>('.filter-btn');
+    const projectCards = document.querySelectorAll<HTMLElement>('.project-card');
     
     filterButtons.forEach(button => {
       button.addEventListener('click', function() {
@@ -171,11 +168,11 @@ const projects = [
         
         // Update active button
         filterButtons.forEach(btn => {
-          btn.classList.remove('active', 'bg-pale-yellow', 'text-dark-orange');
-          btn.classList.add('bg-gray-800', 'text-pale-yellow');
+          btn.classList.remove('active', 'bg-[#363a4f]', 'text-highlight');
+          btn.classList.add('bg-[#363a4f]/10', 'text-accent');
         });
-        this.classList.add('active', 'bg-pale-yellow', 'text-dark-orange');
-        this.classList.remove('bg-gray-800', 'text-pale-yellow');
+        this.classList.add('active', 'bg-[#363a4f]', 'text-highlight');
+        this.classList.remove('bg-[#363a4f]/10', 'text-accent');
         
         // Filter projects
         projectCards.forEach(card => {

@@ -1,0 +1,74 @@
+﻿---
+const themes = [
+  { name: 'Default', id: 'default', colors: ['#24273a', '#a5adcb', '#cad3f5', '#9bcb8e'] },
+  { name: 'Ocean', id: 'ocean', colors: ['#1a2a3a', '#a0c4ff', '#4cc9f0', '#e0fbfc'] },
+  { name: 'Sunset', id: 'sunset', colors: ['#2d1b2d', '#ff9e00', '#ff0054', '#ffbd00'] },
+  { name: 'Forest', id: 'forest', colors: ['#1b261b', '#9ef01a', '#38b000', '#ccff33'] },
+];
+---
+
+<section id="theme-customization" class="py-12 px-4 sm:px-6 lg:px-8">
+  <div class="max-w-6xl mx-auto">
+    <div class="text-center mb-8">
+      <h3 class="text-2xl font-bold text-highlight mb-2">Customize Theme</h3>
+      <p class="text-secondary/80">Choose a color palette that suits your style</p>
+    </div>
+
+    <div class="flex flex-wrap justify-center gap-6">
+      {themes.map((theme) => (
+        <button
+          data-theme-id={theme.id}
+          class="theme-button group relative p-1 rounded-xl transition-all hover:scale-105 focus:outline-none focus:ring-2 focus:ring-accent"
+          aria-label={`Switch to ${theme.name} theme`}
+        >
+          <div class="bg-[#363a4f] border border-highlight/20 rounded-lg p-3 w-32 h-24 flex flex-col justify-between overflow-hidden">
+             <div class="flex gap-1">
+                {theme.colors.slice(1).map(color => (
+                    <div class="w-4 h-4 rounded-full" style={`background-color: ${color}`}></div>
+                ))}
+             </div>
+             <span class="text-sm font-medium text-highlight group-hover:text-accent transition-colors">{theme.name}</span>
+          </div>
+          <div class="absolute inset-0 bg-accent/0 group-[.active]:bg-accent/10 rounded-xl -z-10 transition-colors"></div>
+        </button>
+      ))}
+    </div>
+  </div>
+</section>
+
+<script>
+  function setTheme(themeId: string) {
+    document.documentElement.setAttribute('data-theme', themeId);
+    localStorage.setItem('theme', themeId);
+    
+    // Update active state of buttons
+    document.querySelectorAll('.theme-button').forEach(btn => {
+      if (btn.getAttribute('data-theme-id') === themeId) {
+        btn.classList.add('active');
+      } else {
+        btn.classList.remove('active');
+      }
+    });
+  }
+
+  // Initialize buttons
+  const themeButtons = document.querySelectorAll('.theme-button');
+  const currentTheme = localStorage.getItem('theme') || 'default';
+  
+  setTheme(currentTheme);
+
+  themeButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      const themeId = button.getAttribute('data-theme-id');
+      if (themeId) {
+        setTheme(themeId);
+      }
+    });
+  });
+</script>
+
+<style>
+  .theme-button.active {
+    @apply ring-2 ring-accent;
+  }
+</style>
