@@ -2,8 +2,8 @@
 // Hero section component
 ---
 
-<section class="min-h-[40vh] flex items-center justify-center pt-16 px-4 sm:px-6 lg:px-8">
-  <div class="max-w-6xl mx-auto text-left">
+<section class="min-h-[50vh] flex items-center justify-center pt-16 pb-4 px-4 sm:px-6 lg:px-8">
+  <div class="max-w-7xl mx-auto text-left">
     <div class="space-y-8">
       <!-- Main heading -->
       <div class="space-y-4">
@@ -11,7 +11,7 @@
           Hey, I'm <span class="text-highlight drop-shadow-[0_2px_2px_rgba(0,0,0,0.8)]">Bruce Anakin Miranda</span>
         </h1>
         <p class="text-xl sm:text-2xl max-w-3xl leading-relaxed text-secondary">
-          I've worked on games and graphics programming projects across various engines and technologies.
+          I've worked on games from indie to triple A, specializing in Unity & Godot, and a bit of other engines.
         </p>
       </div>
       
@@ -64,6 +64,41 @@
           </svg>
           <span class="text-sm font-medium">LinkedIn</span>
         </a>
+      </div>
+
+      <!-- Work History -->
+      <div class="space-y-4 pt-4 border-t border-highlight/20">
+        <p class="text-sm font-mono uppercase tracking-wider text-secondary">
+          Work Experience
+        </p>
+        <div class="flex flex-row-reverse flex-wrap items-center justify-end gap-x-12 gap-y-6 transition-all duration-500">
+          <div class="flex items-center gap-3 group shrink-0 relative grayscale-[40%] opacity-80 hover:grayscale-0 hover:opacity-100 transition-all">
+            <img 
+              src="/assets/img/ubisoft-logo.svg" 
+              alt="Ubisoft" 
+              class="h-8 sm:h-10 w-auto transition-all group-hover:scale-110"
+            />
+            <div class="flex flex-col">
+              <span class="text-base sm:text-lg font-bold text-highlight transition-all leading-tight">Ubisoft</span>
+              <span class="text-xs sm:text-sm text-secondary hidden group-hover:block absolute top-full left-0 mt-1 whitespace-nowrap bg-background/90 backdrop-blur-sm p-2 rounded border border-highlight/10 z-10 shadow-xl">
+                Gameplay Programmer Intern <span class="text-highlight/60">•</span> 2022
+              </span>
+            </div>
+          </div>
+          <div class="flex items-center gap-3 group shrink-0 relative grayscale-[20%] opacity-80 hover:grayscale-0 hover:opacity-100 transition-all">
+            <img 
+              src="/assets/img/megacatstudios-logo.webp" 
+              alt="Mega Cat Studios" 
+              class="h-8 sm:h-10 w-auto transition-all group-hover:scale-110"
+            />
+            <div class="flex flex-col">
+              <span class="text-base sm:text-lg font-bold text-highlight transition-all leading-tight">Mega Cat Studios</span>
+              <span class="text-xs sm:text-sm text-secondary hidden group-hover:block absolute top-full left-0 mt-1 whitespace-nowrap bg-background/90 backdrop-blur-sm p-2 rounded border border-highlight/10 z-10 shadow-xl">
+                Intermediate Unity Developer <span class="text-highlight/60">•</span> 2023 - Present
+              </span>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
